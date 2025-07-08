@@ -6,197 +6,449 @@
     <title>Currículum Vitae - Andrea Alvarado Durán</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Variables CSS para una gestión centralizada de colores */
+        /* Variables de color */
         :root {
-            --primary-blue: #0056b3; /* Azul oscuro principal para títulos y acentos */
-            --secondary-blue: #007bff; /* Azul brillante para enlaces y detalles */
-            --text-dark: #343a40; /* Color principal del texto */
-            --text-subtle: #6c757d; /* Gris para subtítulos y fechas */
-            --border-light: #dee2e6; /* Color de borde para separadores sutiles */
-            --background-body: #ffffff; /* Fondo blanco para todo el cuerpo del CV */
-            --background-column-left: #f8f9fa; /* Fondo muy claro para la columna izquierda */
-            --skill-bubble-bg: #e0f2f7; /* Fondo sutil para las burbujas de habilidades */
-            --skill-bubble-border: #b2e0ec; /* Borde sutil para las burbujas de habilidades */
+            --primary-color: #0056b3; /* Azul más oscuro para títulos y acentos */
+            --secondary-color: #007bff; /* Azul vibrante */
+            --text-color: #333; /* Gris oscuro para texto principal */
+            --light-text-color: #666; /* Gris medio para subtítulos/fechas */
+            --background-color: #f0f2f5; /* Fondo muy claro */
+            --card-background: #fff; /* Fondo de las secciones */
+            --border-color: #e9ecef; /* Color de borde sutil */
+            --accent-bg-color: #e6f7ff; /* Fondo para burbujas de habilidades y otros acentos */
         }
 
+        /* Estilos generales del cuerpo */
         body {
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px; /* Padding alrededor de todo el contenedor del CV */
-            background-color: var(--background-body); /* Fondo blanco para todo el CV */
-            color: var(--text-dark);
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh; /* Asegura que el cuerpo ocupe al menos toda la altura de la vista */
-        }
-
-        .cv-container {
-            display: flex; /* Habilita Flexbox para las columnas */
-            width: 100%;
-            max-width: 960px; /* Ancho máximo para el diseño */
-            background-color: #fff; /* Asegura un fondo blanco para el contenedor principal */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra suave para un efecto flotante */
-            border-radius: 8px; /* Bordes redondeados */
-            overflow: hidden; /* Importante para que los bordes redondeados se vean bien */
-        }
-
-        .left-column {
-            flex: 0 0 35%; /* La columna izquierda toma el 35% del ancho, no se encoge ni crece */
-            background-color: var(--background-column-left); /* Fondo ligeramente gris para la columna izquierda */
-            padding: 30px 25px;
+            padding: 0; /* Eliminado padding aquí para controlarlo en .page */
+            background-color: var(--background-color);
+            color: var(--text-color);
             display: flex;
             flex-direction: column;
-            align-items: center; /* Centra el contenido horizontalmente */
+            align-items: center;
+            min-height: 100vh;
         }
 
-        .right-column {
-            flex: 1; /* La columna derecha toma el espacio restante */
-            padding: 30px 40px;
+        /* Contenedor principal que simula las páginas */
+        .page {
+            max-width: 900px; /* Ancho similar al A4 */
+            width: 100%;
+            background: var(--card-background);
+            padding: 40px 50px;
+            margin-bottom: 25px; /* Espacio entre "páginas" */
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+        .page:last-child {
+            margin-bottom: 50px; /* Más espacio al final de la última página */
         }
 
-        /* Estilos del nombre y título principal */
-        .header-name {
+        /* Estilo para el nombre principal */
+        .main-name {
             font-family: 'Montserrat', sans-serif;
             text-align: center;
-            font-weight: 800; /* Extra bold */
+            color: var(--primary-color);
             margin-bottom: 5px;
-            line-height: 1.1;
-            color: var(--primary-blue); /* Color azul del PDF */
-            font-size: 2.8em; /* Tamaño grande */
+            font-size: 3.5em; /* Tamaño más grande para impacto */
+            letter-spacing: 1px;
+            font-weight: 800; /* Extra negrita */
             text-transform: uppercase; /* Mayúsculas como en el PDF */
+            line-height: 1.1;
         }
-        .header-title {
+        .main-title { /* Para "Docente de Inglés..." */
             text-align: center;
-            font-size: 1.1em;
-            color: var(--text-subtle);
+            color: var(--light-text-color);
+            font-size: 1.25em;
             margin-top: 0;
             margin-bottom: 40px;
             font-weight: 600;
         }
 
-        /* Títulos de las secciones */
-        .section-title {
+        /* Estilos de encabezados de sección */
+        h2 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.6em;
-            color: var(--primary-blue); /* Color azul principal */
-            border-bottom: 2px solid var(--border-light); /* Línea divisoria sutil */
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 10px;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-        .left-column .section-title {
-            text-align: center; /* Centra los títulos en la columna izquierda */
-            font-size: 1.3em; /* Un poco más pequeños para la columna lateral */
-            margin-top: 25px;
-        }
-
-        /* Perfil Profesional */
-        .profile-text {
-            font-size: 0.9em;
-            line-height: 1.7;
-            text-align: justify;
+            margin-top: 45px;
             margin-bottom: 25px;
+            font-size: 2em;
+            font-weight: 700;
         }
 
-        /* Contacto */
-        .contact-info p {
-            font-size: 0.9em;
-            margin: 8px 0;
-            display: flex;
-            align-items: center;
-            color: var(--text-dark);
-        }
-        .contact-info strong {
-            font-weight: 600;
-            margin-right: 8px;
-            color: var(--primary-blue);
-            min-width: 70px; /* Asegura espacio para la etiqueta */
-        }
-        .contact-info a {
-            color: var(--secondary-blue);
-            text-decoration: none;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* Habilidades (Skills) */
-        .skills-list {
-            list-style: none; /* Eliminar viñetas */
-            padding: 0;
-            margin-top: 15px;
-        }
-        .skills-list li {
-            background-color: var(--skill-bubble-bg);
-            color: var(--primary-blue);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.85em;
+        /* Estilos de subencabezados (títulos de puestos, etc.) */
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary-color);
+            margin-top: 25px;
             margin-bottom: 8px;
-            border: 1px solid var(--skill-bubble-border);
+            font-size: 1.4em;
             font-weight: 600;
-            text-align: center;
-            transition: background-color 0.3s ease;
-        }
-        .skills-list li:hover {
-            background-color: #cceeff;
         }
 
-        /* Experiencia y Educación */
-        .item-block { /* Bloque general para job, education, certificate */
+        /* Estilos de secciones generales */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        /* Estilos para entradas de experiencia/educación */
+        .job, .education-item, .certificate-item {
             margin-bottom: 20px;
             padding-bottom: 15px;
-            border-bottom: 1px dashed var(--border-light); /* Línea punteada sutil */
+            border-bottom: 1px dashed var(--border-color);
         }
-        .item-block:last-child {
-            border-bottom: none; /* No hay línea en el último de cada sección */
+        .job:last-child, .education-item:last-child, .certificate-item:last-child {
+            border-bottom: none;
         }
 
+        /* Encabezado de puesto para alinear título y fecha */
         .job-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 5px;
         }
+
         .job-title-company {
             flex-grow: 1;
         }
-        .job-role {
-            font-family: 'Montserrat', sans-serif;
+
+        .job-title {
             font-weight: 700;
-            color: var(--text-dark);
-            font-size: 1.05em;
-            margin-bottom: 2px;
+            color: var(--text-color);
+            font-size: 1.15em;
         }
-        .job-company {
+        .company-name {
             font-style: italic;
-            color: var(--text-subtle);
-            font-size: 0.95em;
+            color: var(--light-text-color);
+            font-size: 1em;
         }
-        .job-date {
-            white-space: nowrap; /* Evita que la fecha se rompa */
-            color: var(--text-subtle);
-            font-size: 0.9em;
+        .date {
+            white-space: nowrap;
+            color: var(--light-text-color);
+            font-size: 0.95em;
             font-weight: 600;
-            text-align: right; /* Alinea la fecha a la derecha */
-            min-width: 140px; /* Asegura espacio mínimo */
+            min-width: 150px; /* Asegura espacio para la fecha */
+            text-align: right;
         }
 
-        .description-list { /* Lista general para descripciones, educación, certificados */
-            list-style-type: disc; /* Viñetas estándar */
-            padding-left: 20px;
+        /* Listas */
+        ul {
+            list-style-type: disc;
+            padding-left: 28px;
             margin-top: 10px;
-            font-size: 0.9em;
         }
-        .description-list li {
-            margin-bottom: 5px;
+        ul li {
+            margin-bottom: 7px;
             line-height: 1.5;
         }
-        
-        .education-item strong, .certificate-item strong {
-            display: block;
-            font-size: 1em;
-            color: var(--primary
+
+        /* Contacto */
+        .contact-info p {
+            margin: 6px 0;
+            color: var(--text-color);
+            font-size: 1.05em;
+        }
+        .contact-info strong {
+            color: var(--primary-color);
+        }
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Perfil Profesional */
+        .profile-text {
+            text-align: justify;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        /* Habilidades */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+        .skills-list li {
+            background-color: var(--accent-bg-color);
+            color: var(--primary-color);
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            border: 1px solid #b3e0ff;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .skills-list li:hover {
+            background-color: #cceeff;
+            transform: translateY(-2px);
+        }
+
+        /* Responsividad para pantallas más pequeñas (móviles) */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .page {
+                margin: 10px auto;
+                padding: 25px;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .main-name {
+                font-size: 2.5em;
+            }
+            .main-title {
+                font-size: 1.1em;
+                margin-bottom: 30px;
+            }
+            h2 {
+                font-size: 1.6em;
+                margin-top: 30px;
+                margin-bottom: 18px;
+            }
+            h3 {
+                font-size: 1.2em;
+                margin-top: 20px;
+                margin-bottom: 5px;
+            }
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .date {
+                margin-top: 5px;
+                text-align: left; /* Alinea la fecha a la izquierda en móviles */
+            }
+            .profile-text, .contact-info p, ul li {
+                font-size: 0.95em;
+            }
+            .skills-list li {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h1 class="main-name">ANDREA</h1>
+        <h1 class="main-name">ALVARADO DURÁN</h1>
+        <p class="main-title">DOCENTE DE INGLÉS COLEGIADA ANTE COLYPRO</p>
+
+        <div class="section contact-info">
+            <h2>CONTACTO</h2>
+            [cite_start]<p><strong>Correo Electrónico:</strong> <a href="mailto:alvaradoduranandrea@gmail.com">alvaradoduranandrea@gmail.com</a> [cite: 21]</p>
+            [cite_start]<p><strong>Ubicación:</strong> C. Quesada, San Carlos, Alajuela, Costa Rica. [cite: 22]</p>
+            [cite_start]<p><strong>Teléfono Celular:</strong> +506 8758-4237 [cite: 23]</p>
+            [cite_start]<p><strong>Fecha de Nacimiento:</strong> 09 enero 1991 [cite: 24]</p>
+        </div>
+
+        <div class="section">
+            <h2>PERFIL</h2>
+            <p class="profile-text">
+                [cite_start]Profesional bilingüe con amplia experiencia en la enseñanza del inglés a estudiantes de todas las edades, desde preescolar hasta adultos[cite: 5]. [cite_start]Experta en la aplicación de metodologías como CLIL para integrar el aprendizaje del idioma con contenidos académicos[cite: 6]. [cite_start]Especializada en intervenciones psicopedagógicas para dificultades de aprendizaje como TDAH, dislexia y disgrafía, integrando estas áreas al proceso de adquisición del inglés[cite: 7]. [cite_start]Destacada en la coordinación de procesos evaluativos y en el diseño de estrategias personalizadas que impulsan el desarrollo lingüístico, académico y emocional de cada estudiante[cite: 8, 9].
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>EXPERIENCIA PROFESIONAL</h2>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">CLIL teacher</span> <span class="company-name">| Carmen Lyra | [cite_start]San Carlos, C.R.</span> [cite: 12]</h3>
+                    </div>
+                    [cite_start]<span class="date">Enero 2023 - Actualmente [cite: 11]</span>
+                </div>
+                <ul>
+                    [cite_start]<li>Actualmente imparte clases de Matemáticas y Ciencias en primaria utilizando el idioma inglés como medio de instrucción, bajo el enfoque CLIL (Content and Language Integrated Learning)[cite: 13].</li>
+                    [cite_start]<li>Su labor se centra en desarrollar habilidades académicas y lingüísticas, promoviendo pensamiento crítico y fluidez comunicativa en inglés[cite: 14].</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">Coordinación y asesoría de evaluación académica</span> <span class="company-name">| Carmen Lyra | [cite_start]San Carlos, C.R.</span> [cite: 16]</h3>
+                    </div>
+                    [cite_start]<span class="date">Febrero 2018 - Actualmente [cite: 15]</span>
+                </div>
+                <ul>
+                    [cite_start]<li>Miembro activo del Comité de Evaluación de primaria desde 2018, participando en la elaboración, revisión y mejora de instrumentos y procesos de evaluación académica tanto en español como en inglés[cite: 17].</li>
+                    [cite_start]<li>Actualmente, coordina el Comité de Evaluación de primaria y asesora al Comité de Evaluación de secundaria, brindando acompañamiento técnico para garantizar la calidad, coherencia y alineación pedagógica en las evaluaciones de ambos niveles[cite: 18].</li>
+                    [cite_start]<li>Paralelamente, fue responsable de iniciar y coordinar la certificación continua en inglés mediante pruebas TOEFL Primary, Junior e ITP para primaria y secundaria, en colaboración con el Centro Cultural Costarricense Norteamericano, con el fin de certificar el nivel de inglés de los estudiantes[cite: 19].</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">Psicopedagogía</span> <span class="company-name">| Consultoría privada | [cite_start]San Carlos-San José, C.R</span> [cite: 26]</h3>
+                    </div>
+                    [cite_start]<span class="date">Febrero 2018 - Actualmente [cite: 25]</span>
+                </div>
+                <ul>
+                    [cite_start]<li>Psicopedagoga privada con experiencia en diagnóstico y acompañamiento de estudiantes con dificultades de aprendizaje como TDAH, TEA, síndrome de Down, discalculia y disgrafía[cite: 27].</li>
+                    [cite_start]<li>Como resultado de la integración de ambas carreras, ha desarrollado intervenciones personalizadas para abordar de forma simultánea las dificultades en lectura y escritura en español e inglés, especialmente en estudiantes cuyo desempeño en lengua materna afecta su aprendizaje del inglés como segunda lengua[cite: 28].</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">English Teacher</span> <span class="company-name">| Ministerio Educación Pública | [cite_start]San Carlos, C.R</span> [cite: 32]</h3>
+                    </div>
+                    [cite_start]<span class="date">Abril 2022 - Diciembre 2022 [cite: 31]</span>
+                </div>
+                <ul>
+                    [cite_start]<li>Encargada de impartir clases de inglés en todos los niveles de primaria, desarrollando las cuatro habilidades lingüísticas (listening, speaking, reading y writing), en cumplimiento con los lineamientos del Ministerio de Educación Pública[cite: 33].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="section">
+            <h2>EXPERIENCIA PROFESIONAL (Continuación)</h2>
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">English Language Tutor</span> <span class="company-name">| Servicio privado tutoría | [cite_start]San Carlos - San José, C.R</span> [cite: 43]</h3>
+                    </div>
+                    [cite_start]<span class="date">2019 - Enero 2022 [cite: 42]</span>
+                </div>
+                <ul>
+                    [cite_start]<li>Impartió tutorías grupales a estudiantes de preescolar como parte de una propuesta para ampliar el alcance del aprendizaje del idioma inglés, aprobada por el centro Kenely de Colores[cite: 44].</li>
+                    [cite_start]<li>Impartió tutorías virtuales de nivelación y recuperación en inglés para estudiantes de distintas edades, adaptando estrategias según el nivel y los objetivos[cite: 45].</li>
+                    [cite_start]<li>Atendió casos de instituciones como María Inmaculada de Moravia, centros del M.E.P (primaria y secundaria) y Carmen Lyra[cite: 46].</li>
+                    [cite_start]<li>Ofreció clases virtuales a adultos para la adquisición del idioma inglés, utilizando un enfoque comunicativo orientado al ámbito laboral[cite: 47].</li>
+                    [cite_start]<li>Preparó a adolescentes y adultos para procesos de admisión en pruebas de inglés, con excelentes resultados en instituciones como el Colegio Agropecuario, CTP Don Bosco y ULACIT[cite: 48].</li>
+                    [cite_start]<li>Preparó a adultos universitarios para cumplir con el requisito de graduación mediante la aprobación de una prueba de inglés, cumpliendo con los estándares académicos de instituciones como la Universidad Hispanoamericana y ULACIT[cite: 49].</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">ESL, Reading, Grammar and Math teacher (enfoque CLIL)</span> <span class="company-name">| Carmen Lyra | [cite_start]San Carlos, C.R</span> [cite: 51]</h3>
+                    </div>
+                    [cite_start]<span class="date">Febrero 2016 - Abril 2022 [cite: 50]</span>
+                </div>
+                <ul>
+                    [cite_start]<li>Se desempeñó como docente de gramática inglesa para 1, 2 y 3 grado, y como docente de lectura en inglés para 3, 4 y 5 de primaria[cite: 52].</li>
+                    [cite_start]<li>Paralelamente, fue asignada como docente de Matemáticas para primer grado, y progresivamente se le asignaron también los niveles 2, 3, 4 y 5, impartiendo la materia en inglés[cite: 53].</li>
+                    [cite_start]<li>Toda la enseñanza se desarrolló bajo un enfoque CLIL, integrando el aprendizaje de contenidos académicos con el desarrollo del idioma inglés[cite: 54].</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">ESL teacher</span> <span class="company-name">| Instituto de inteligencia I.D.I | [cite_start]San José, C.R</span> [cite: 56]</h3>
+                    </div>
+                    [cite_start]<span class="date">Septiembre 2015 - Diciembre 2015 [cite: 55]</span>
+                </div>
+                <ul>
+                    [cite_start]<li>Impartió clases de inglés durante el último trimestre para tercer grado integrando las cuatro habilidades comunicativas: Listening, Speaking, Reading y Writing[cite: 57].</li>
+                    [cite_start]<li>Diseñó actividades y materiales que promovieron el desarrollo equilibrado de todas las competencias lingüísticas en un ambiente motivador y participativo[cite: 58].</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">English pre-school teacher</span> <span class="company-name">| Kenely de Colores | [cite_start]San José, C.R</span> [cite: 60]</h3>
+                    </div>
+                    [cite_start]<span class="date">Febrero 2013 - Noviembre 2015 [cite: 59]</span>
+                </div>
+                <ul>
+                    [cite_start]<li>Responsable de fortalecer las competencias lingüísticas requeridas para el ingreso a 1º grado, nombrada coordinadora de inglés en preescolar[cite: 61].</li>
+                    [cite_start]<li>Contratada con el propósito de elevar el nivel del idioma en preescolar, en coordinación con el departamento de inglés de primaria y brindando asesoría a las docentes de Materno e Interactivo 1 para lograr alcanzar y superar los estándares básicos esperados[cite: 62].</li>
+                    [cite_start]<li>Impartió clases en niveles de interactivo 2 y en preparatoria, integrando el desarrollo del idioma inglés con actividades lúdicas y pedagógicas adaptadas a la edad[cite: 63].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>EDUCACIÓN SUPERIOR</h2>
+            <ul>
+                <li class="education-item">
+                    [cite_start]<strong>Licenciatura en enseñanza del inglés para I y II ciclos de la E.G.B</strong> [cite: 66]<br>
+                    Universidad Hispanoamérica | [cite_start]Abril 2024 [cite: 65]
+                </li>
+                <li class="education-item">
+                    [cite_start]<strong>Maestría en psicopedagogía</strong> [cite: 68]<br>
+                    Universidad Hispanoamérica | [cite_start]Mayo 2017 [cite: 67]
+                </li>
+                <li class="education-item">
+                    [cite_start]<strong>Bachiller en enseñanza del inglés para I y II ciclos de la E.G.B</strong> [cite: 70]<br>
+                    Universidad Hispanoamérica | [cite_start]Noviembre 2012 [cite: 69]
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>CERTIFICADOS Y CURSOS</h2>
+            <ul>
+                <li class="certificate-item">
+                    [cite_start]<strong>Educación Afectiva</strong> [cite: 72]<br>
+                    U.I.N (Universidad Isaac Newton) | [cite_start]Actualmente en curso 2025 [cite: 73]
+                </li>
+                <li class="certificate-item">
+                    [cite_start]<strong>Evaluación de los aprendizajes en el ámbito educativo</strong> [cite: 74]<br>
+                    UNED | [cite_start]40 horas calificación final $10/10$ [cite: 75]<br>
+                    [cite_start]17/junio/2020 al 31/agosto/2020 [cite: 76]
+                </li>
+                <li class="certificate-item">
+                    [cite_start]<strong>Manejo Integrado de Huertas Escolares</strong> [cite: 77]<br>
+                    UNED | [cite_start]48 horas Calificación final 10/10 [cite: 78]<br>
+                    [cite_start]22/agosto/2018 al 05/diciembre/2018. [cite: 79]
+                </li>
+                <li class="certificate-item">
+                    [cite_start]<strong>Inglés comunicativo</strong> [cite: 80]<br>
+                    I.T.C (Instituto de Capacitación) | [cite_start]144 horas 17/enero/2008 al 15/enero/2009. [cite: 81]
+                </li>
+                <li class="certificate-item">
+                    [cite_start]<strong>MS Office básico</strong> [cite: 82]<br>
+                    [cite_start]I.T.C acreditado por el I.N.A (windows, word, excel) 56 horas [cite: 83]<br>
+                    [cite_start]08/enero/2008 al 15/julio/2008 [cite: 84]
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>IDIOMA</h2>
+            <ul>
+                [cite_start]<li>Inglés Nivel avanzado [cite: 30]</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>HABILIDADES</h2>
+            <ul class="skills-list">
+                [cite_start]<li>Competente en herramientas tecnológicas [cite: 35]</li>
+                [cite_start]<li>Facilidad de adaptación [cite: 36]</li>
+                [cite_start]<li>Liderazgo efectivo [cite: 37]</li>
+                [cite_start]<li>Organizada [cite: 38]</li>
+                [cite_start]<li>Responsable [cite: 39]</li>
+                [cite_start]<li>Actitud proactiva [cite: 40]</li>
+                [cite_start]<li>Capacidad analítica [cite: 41]</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
