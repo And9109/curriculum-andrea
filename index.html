@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currículum Vitae - Andrea Alvarado Durán</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         /* Variables de color */
         :root {
-            --primary-color: #0056b3; /* Azul más oscuro para títulos */
-            --secondary-color: #007bff; /* Azul más vibrante */
+            --primary-color: #0056b3; /* Azul más oscuro para títulos y acentos */
+            --secondary-color: #007bff; /* Azul vibrante */
             --text-color: #333; /* Gris oscuro para texto principal */
             --light-text-color: #666; /* Gris medio para subtítulos/fechas */
-            --background-color: #f8f9fa; /* Fondo muy claro */
-            --card-background: #fff; /* Fondo de las tarjetas */
+            --background-color: #f0f2f5; /* Fondo muy claro */
+            --card-background: #fff; /* Fondo de las secciones */
             --border-color: #e9ecef; /* Color de borde sutil */
+            --accent-bg-color: #e6f7ff; /* Fondo para burbujas de habilidades y otros acentos */
         }
 
         /* Estilos generales del cuerpo */
@@ -22,58 +23,63 @@
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0; /* Eliminado padding aquí para controlarlo en .page */
             background-color: var(--background-color);
             color: var(--text-color);
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
             min-height: 100vh;
         }
 
-        /* Contenedor principal del currículum */
-        .container {
-            max-width: 900px;
+        /* Contenedor principal que simula las páginas */
+        .page {
+            max-width: 900px; /* Ancho similar al A4 */
             width: 100%;
             background: var(--card-background);
-            padding: 40px 50px; /* Más padding horizontal */
+            padding: 40px 50px;
+            margin-bottom: 25px; /* Espacio entre "páginas" */
             border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Sombra más suave */
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+        .page:last-child {
+            margin-bottom: 50px; /* Más espacio al final de la última página */
         }
 
-        /* Estilos de encabezados */
-        h1 {
+        /* Estilo para el nombre principal */
+        .main-name {
             font-family: 'Montserrat', sans-serif;
             text-align: center;
             color: var(--primary-color);
-            margin-bottom: 8px;
-            font-size: 2.8em; /* Tamaño más grande */
-            letter-spacing: 0.5px;
-            font-weight: 700; /* Más negrita */
+            margin-bottom: 5px;
+            font-size: 3.5em; /* Tamaño más grande para impacto */
+            letter-spacing: 1px;
+            font-weight: 800; /* Extra negrita */
+            text-transform: uppercase; /* Mayúsculas como en el PDF */
+            line-height: 1.1;
         }
-
-        h1 + p { /* Estilo para el subtítulo debajo del H1 (Docente de Inglés...) */
+        .main-title { /* Para "Docente de Inglés..." */
             text-align: center;
             color: var(--light-text-color);
-            font-size: 1.15em;
+            font-size: 1.25em;
             margin-top: 0;
-            margin-bottom: 40px; /* Más espacio abajo */
+            margin-bottom: 40px;
             font-weight: 600;
         }
 
+        /* Estilos de encabezados de sección */
         h2 {
             font-family: 'Montserrat', sans-serif;
             color: var(--primary-color);
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 10px;
-            margin-top: 45px; /* Más espacio arriba */
+            margin-top: 45px;
             margin-bottom: 25px;
-            font-size: 2em; /* Más grande */
+            font-size: 2em;
             font-weight: 700;
         }
 
+        /* Estilos de subencabezados (títulos de puestos, etc.) */
         h3 {
             font-family: 'Montserrat', sans-serif;
             color: var(--secondary-color);
@@ -83,21 +89,22 @@
             font-weight: 600;
         }
 
-        /* Estilos de secciones */
+        /* Estilos de secciones generales */
         .section {
             margin-bottom: 35px;
         }
 
-        /* Estilos de elementos de experiencia/educación */
+        /* Estilos para entradas de experiencia/educación */
         .job, .education-item, .certificate-item {
             margin-bottom: 20px;
             padding-bottom: 15px;
-            border-bottom: 1px dashed var(--border-color); /* Línea punteada para separar */
+            border-bottom: 1px dashed var(--border-color);
         }
         .job:last-child, .education-item:last-child, .certificate-item:last-child {
-            border-bottom: none; /* No hay línea en el último elemento de la sección */
+            border-bottom: none;
         }
 
+        /* Encabezado de puesto para alinear título y fecha */
         .job-header {
             display: flex;
             justify-content: space-between;
@@ -120,16 +127,18 @@
             font-size: 1em;
         }
         .date {
-            white-space: nowrap; /* Evita que la fecha se rompa en varias líneas */
+            white-space: nowrap;
             color: var(--light-text-color);
             font-size: 0.95em;
             font-weight: 600;
+            min-width: 150px; /* Asegura espacio para la fecha */
+            text-align: right;
         }
 
         /* Listas */
         ul {
             list-style-type: disc;
-            padding-left: 28px; /* Ajuste para el ícono de la lista */
+            padding-left: 28px;
             margin-top: 10px;
         }
         ul li {
@@ -155,7 +164,7 @@
             text-decoration: underline;
         }
 
-        /* Perfil */
+        /* Perfil Profesional */
         .profile-text {
             text-align: justify;
             margin-bottom: 20px;
@@ -168,16 +177,16 @@
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px; /* Espacio entre las burbujas */
+            gap: 10px;
             list-style: none;
             padding: 0;
             margin-top: 15px;
         }
         .skills-list li {
-            background-color: #e6f7ff; /* Azul claro para las burbujas */
+            background-color: var(--accent-bg-color);
             color: var(--primary-color);
             padding: 10px 18px;
-            border-radius: 25px; /* Bordes redondeados para burbujas */
+            border-radius: 25px;
             font-size: 0.95em;
             border: 1px solid #b3e0ff;
             font-weight: 600;
@@ -185,25 +194,25 @@
         }
         .skills-list li:hover {
             background-color: #cceeff;
-            transform: translateY(-2px); /* Pequeño efecto al pasar el mouse */
+            transform: translateY(-2px);
         }
 
-        /* Adaptación para pantallas más pequeñas (móviles) */
+        /* Responsividad para pantallas más pequeñas (móviles) */
         @media (max-width: 768px) {
             body {
                 padding: 10px;
             }
-            .container {
+            .page {
                 margin: 10px auto;
                 padding: 25px;
-                box-shadow: none; /* Eliminar sombra en móviles para más espacio */
+                box-shadow: none;
                 border-radius: 0;
             }
-            h1 {
-                font-size: 2em;
+            .main-name {
+                font-size: 2.5em;
             }
-            h1 + p {
-                font-size: 1em;
+            .main-title {
+                font-size: 1.1em;
                 margin-bottom: 30px;
             }
             h2 {
@@ -217,46 +226,51 @@
                 margin-bottom: 5px;
             }
             .job-header {
-                flex-direction: column; /* Apilar título y fecha en móviles */
+                flex-direction: column;
                 align-items: flex-start;
             }
             .date {
                 margin-top: 5px;
-                margin-bottom: 10px;
+                text-align: left; /* Alinea la fecha a la izquierda en móviles */
             }
             .profile-text, .contact-info p, ul li {
                 font-size: 0.95em;
+            }
+            .skills-list li {
+                padding: 8px 15px;
+                font-size: 0.9em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>ANDREA ALVARADO DURÁN</h1>
-        <p>Docente de Inglés Colegiada ante COLYPRO</p>
+    <div class="page">
+        <h1 class="main-name">ANDREA</h1>
+        <h1 class="main-name">ALVARADO DURÁN</h1>
+        <p class="main-title">DOCENTE DE INGLÉS COLEGIADA ANTE COLYPRO</p>
 
         <div class="section contact-info">
-            <h2>Contacto</h2>
+            <h2>CONTACTO</h2>
             <p><strong>Correo Electrónico:</strong> <a href="mailto:alvaradoduranandrea@gmail.com">alvaradoduranandrea@gmail.com</a></p>
-            <p><strong>Ubicación:</strong> Ciudad Quesada, San Carlos, Alajuela, Costa Rica.</p>
+            <p><strong>Ubicación:</strong> C. Quesada, San Carlos, Alajuela, Costa Rica.</p>
             <p><strong>Teléfono Celular:</strong> +506 8758-4237</p>
-            <p><strong>Fecha de Nacimiento:</strong> 09 de enero de 1991</p>
+            <p><strong>Fecha de Nacimiento:</strong> 09 enero 1991</p>
         </div>
 
         <div class="section">
-            <h2>Perfil Profesional</h2>
+            <h2>PERFIL</h2>
             <p class="profile-text">
                 Profesional bilingüe con amplia experiencia en la enseñanza del inglés a estudiantes de todas las edades, desde preescolar hasta adultos. Experta en la aplicación de metodologías como CLIL para integrar el aprendizaje del idioma con contenidos académicos. Especializada en intervenciones psicopedagógicas para dificultades de aprendizaje como TDAH, dislexia y disgrafía, integrando estas áreas al proceso de adquisición del inglés. Destacada en la coordinación de procesos evaluativos y en el diseño de estrategias personalizadas que impulsan el desarrollo lingüístico, académico y emocional de cada estudiante.
             </p>
         </div>
 
         <div class="section">
-            <h2>Experiencia Profesional</h2>
+            <h2>EXPERIENCIA PROFESIONAL</h2>
 
             <div class="job">
                 <div class="job-header">
                     <div class="job-title-company">
-                        <h3><span class="job-title">CLIL Teacher</span> <span class="company-name">| Carmen Lyra | San Carlos, C.R.</span></h3>
+                        <h3><span class="job-title">CLIL teacher</span> <span class="company-name">| Carmen Lyra | San Carlos, C.R.</span></h3>
                     </div>
                     <span class="date">Enero 2023 - Actualmente</span>
                 </div>
@@ -283,7 +297,7 @@
             <div class="job">
                 <div class="job-header">
                     <div class="job-title-company">
-                        <h3><span class="job-title">Psicopedagogía</span> <span class="company-name">| Consultoría privada | San Carlos-San José, C.R.</span></h3>
+                        <h3><span class="job-title">Psicopedagogía</span> <span class="company-name">| Consultoría privada | San Carlos-San José, C.R</span></h3>
                     </div>
                     <span class="date">Febrero 2018 - Actualmente</span>
                 </div>
@@ -296,7 +310,7 @@
             <div class="job">
                 <div class="job-header">
                     <div class="job-title-company">
-                        <h3><span class="job-title">English Teacher</span> <span class="company-name">| Ministerio Educación Pública | San Carlos, C.R.</span></h3>
+                        <h3><span class="job-title">English Teacher</span> <span class="company-name">| Ministerio Educación Pública | San Carlos, C.R</span></h3>
                     </div>
                     <span class="date">Abril 2022 - Diciembre 2022</span>
                 </div>
@@ -304,11 +318,16 @@
                     <li>Encargada de impartir clases de inglés en todos los niveles de primaria, desarrollando las cuatro habilidades lingüísticas (listening, speaking, reading y writing), en cumplimiento con los lineamientos del Ministerio de Educación Pública.</li>
                 </ul>
             </div>
+        </div>
+    </div>
 
+    <div class="page">
+        <div class="section">
+            <h2>EXPERIENCIA PROFESIONAL (Continuación)</h2>
             <div class="job">
                 <div class="job-header">
                     <div class="job-title-company">
-                        <h3><span class="job-title">English Language Tutor</span> <span class="company-name">| Servicio privado tutoría | San Carlos - San José, C.R.</span></h3>
+                        <h3><span class="job-title">English Language Tutor</span> <span class="company-name">| Servicio privado tutoría | San Carlos - San José, C.R</span></h3>
                     </div>
                     <span class="date">2019 - Enero 2022</span>
                 </div>
@@ -325,7 +344,7 @@
             <div class="job">
                 <div class="job-header">
                     <div class="job-title-company">
-                        <h3><span class="job-title">ESL, Reading, Grammar and Math teacher (enfoque CLIL)</span> <span class="company-name">| Carmen Lyra | San Carlos, C.R.</span></h3>
+                        <h3><span class="job-title">ESL, Reading, Grammar and Math teacher (enfoque CLIL)</span> <span class="company-name">| Carmen Lyra | San Carlos, C.R</span></h3>
                     </div>
                     <span class="date">Febrero 2016 - Abril 2022</span>
                 </div>
@@ -339,7 +358,7 @@
             <div class="job">
                 <div class="job-header">
                     <div class="job-title-company">
-                        <h3><span class="job-title">ESL teacher</span> <span class="company-name">| Instituto de inteligencia I.D.I | San José, C.R.</span></h3>
+                        <h3><span class="job-title">ESL teacher</span> <span class="company-name">| Instituto de inteligencia I.D.I | San José, C.R</span></h3>
                     </div>
                     <span class="date">Septiembre 2015 - Diciembre 2015</span>
                 </div>
@@ -352,7 +371,7 @@
             <div class="job">
                 <div class="job-header">
                     <div class="job-title-company">
-                        <h3><span class="job-title">English pre-school teacher</span> <span class="company-name">| Kenely de Colores | San José, C.R.</span></h3>
+                        <h3><span class="job-title">English pre-school teacher</span> <span class="company-name">| Kenely de Colores | San José, C.R</span></h3>
                     </div>
                     <span class="date">Febrero 2013 - Noviembre 2015</span>
                 </div>
@@ -365,8 +384,71 @@
         </div>
 
         <div class="section">
-            <h2>Educación Superior</h2>
+            <h2>EDUCACIÓN SUPERIOR</h2>
             <ul>
                 <li class="education-item">
                     <strong>Licenciatura en enseñanza del inglés para I y II ciclos de la E.G.B</strong><br>
-                    Universidad Hispanoamérica | Abril 2
+                    Universidad Hispanoamérica | Abril 2024
+                </li>
+                <li class="education-item">
+                    <strong>Maestría en psicopedagogía</strong><br>
+                    Universidad Hispanoamérica | Mayo 2017
+                </li>
+                <li class="education-item">
+                    <strong>Bachiller en enseñanza del inglés para I y II ciclos de la E.G.B</strong><br>
+                    Universidad Hispanoamérica | Noviembre 2012
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>CERTIFICADOS Y CURSOS</h2>
+            <ul>
+                <li class="certificate-item">
+                    <strong>Educación Afectiva</strong><br>
+                    U.I.N (Universidad Isaac Newton) | Actualmente en curso 2025
+                </li>
+                <li class="certificate-item">
+                    <strong>Evaluación de los aprendizajes en el ámbito educativo</strong><br>
+                    UNED | 40 horas calificación final $10/10$<br>
+                    17/junio/2020 al 31/agosto/2020
+                </li>
+                <li class="certificate-item">
+                    <strong>Manejo Integrado de Huertas Escolares</strong><br>
+                    UNED | 48 horas Calificación final 10/10<br>
+                    22/agosto/2018 al 05/diciembre/2018.
+                </li>
+                <li class="certificate-item">
+                    <strong>Inglés comunicativo</strong><br>
+                    I.T.C (Instituto de Capacitación) | 144 horas 17/enero/2008 al 15/enero/2009.
+                </li>
+                <li class="certificate-item">
+                    <strong>MS Office básico</strong><br>
+                    I.T.C acreditado por el I.N.A (windows, word, excel) 56 horas<br>
+                    08/enero/2008 al 15/julio/2008
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>IDIOMA</h2>
+            <ul>
+                <li>Inglés Nivel avanzado</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>HABILIDADES</h2>
+            <ul class="skills-list">
+                <li>Competente en herramientas tecnológicas</li>
+                <li>Facilidad de adaptación</li>
+                <li>Liderazgo efectivo</li>
+                <li>Organizada</li>
+                <li>Responsable</li>
+                <li>Actitud proactiva</li>
+                <li>Capacidad analítica</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
