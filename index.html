@@ -4,232 +4,369 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currículum Vitae - Andrea Alvarado Durán</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
+        /* Variables de color */
+        :root {
+            --primary-color: #0056b3; /* Azul más oscuro para títulos */
+            --secondary-color: #007bff; /* Azul más vibrante */
+            --text-color: #333; /* Gris oscuro para texto principal */
+            --light-text-color: #666; /* Gris medio para subtítulos/fechas */
+            --background-color: #f8f9fa; /* Fondo muy claro */
+            --card-background: #fff; /* Fondo de las tarjetas */
+            --border-color: #e9ecef; /* Color de borde sutil */
         }
+
+        /* Estilos generales del cuerpo */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* Contenedor principal del currículum */
         .container {
             max-width: 900px;
-            margin: auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            background: var(--card-background);
+            padding: 40px 50px; /* Más padding horizontal */
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Sombra más suave */
+            display: flex;
+            flex-direction: column;
         }
-        h1, h2, h3 {
-            color: #0056b3;
-        }
+
+        /* Estilos de encabezados */
         h1 {
+            font-family: 'Montserrat', sans-serif;
             text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 2.8em; /* Tamaño más grande */
+            letter-spacing: 0.5px;
+            font-weight: 700; /* Más negrita */
+        }
+
+        h1 + p { /* Estilo para el subtítulo debajo del H1 (Docente de Inglés...) */
+            text-align: center;
+            color: var(--light-text-color);
+            font-size: 1.15em;
+            margin-top: 0;
+            margin-bottom: 40px; /* Más espacio abajo */
+            font-weight: 600;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 45px; /* Más espacio arriba */
+            margin-bottom: 25px;
+            font-size: 2em; /* Más grande */
+            font-weight: 700;
+        }
+
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary-color);
+            margin-top: 25px;
+            margin-bottom: 8px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+
+        /* Estilos de secciones */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        /* Estilos de elementos de experiencia/educación */
+        .job, .education-item, .certificate-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color); /* Línea punteada para separar */
+        }
+        .job:last-child, .education-item:last-child, .certificate-item:last-child {
+            border-bottom: none; /* No hay línea en el último elemento de la sección */
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             margin-bottom: 5px;
         }
-        h2 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-            margin-top: 25px;
+
+        .job-title-company {
+            flex-grow: 1;
         }
-        .section {
-            margin-bottom: 20px;
-        }
+
         .job-title {
-            font-weight: bold;
-            color: #007bff;
+            font-weight: 700;
+            color: var(--text-color);
+            font-size: 1.15em;
         }
         .company-name {
             font-style: italic;
+            color: var(--light-text-color);
+            font-size: 1em;
         }
         .date {
-            float: right;
-            color: #555;
+            white-space: nowrap; /* Evita que la fecha se rompa en varias líneas */
+            color: var(--light-text-color);
+            font-size: 0.95em;
+            font-weight: 600;
         }
+
+        /* Listas */
         ul {
-            list-style-type: none;
-            padding: 0;
+            list-style-type: disc;
+            padding-left: 28px; /* Ajuste para el ícono de la lista */
+            margin-top: 10px;
         }
         ul li {
-            margin-bottom: 5px;
+            margin-bottom: 7px;
+            line-height: 1.5;
         }
+
+        /* Contacto */
         .contact-info p {
-            margin: 0;
+            margin: 6px 0;
+            color: var(--text-color);
+            font-size: 1.05em;
         }
+        .contact-info strong {
+            color: var(--primary-color);
+        }
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Perfil */
         .profile-text {
             text-align: justify;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        /* Habilidades */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Espacio entre las burbujas */
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+        .skills-list li {
+            background-color: #e6f7ff; /* Azul claro para las burbujas */
+            color: var(--primary-color);
+            padding: 10px 18px;
+            border-radius: 25px; /* Bordes redondeados para burbujas */
+            font-size: 0.95em;
+            border: 1px solid #b3e0ff;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .skills-list li:hover {
+            background-color: #cceeff;
+            transform: translateY(-2px); /* Pequeño efecto al pasar el mouse */
+        }
+
+        /* Adaptación para pantallas más pequeñas (móviles) */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                margin: 10px auto;
+                padding: 25px;
+                box-shadow: none; /* Eliminar sombra en móviles para más espacio */
+                border-radius: 0;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h1 + p {
+                font-size: 1em;
+                margin-bottom: 30px;
+            }
+            h2 {
+                font-size: 1.6em;
+                margin-top: 30px;
+                margin-bottom: 18px;
+            }
+            h3 {
+                font-size: 1.2em;
+                margin-top: 20px;
+                margin-bottom: 5px;
+            }
+            .job-header {
+                flex-direction: column; /* Apilar título y fecha en móviles */
+                align-items: flex-start;
+            }
+            .date {
+                margin-top: 5px;
+                margin-bottom: 10px;
+            }
+            .profile-text, .contact-info p, ul li {
+                font-size: 0.95em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        [cite_start]<h1>ANDREA ALVARADO DURÁN [cite: 1, 2]</h1>
-        [cite_start]<p style="text-align: center;">Docente de Inglés Colegiada ante COLYPRO [cite: 3]</p>
+        <h1>ANDREA ALVARADO DURÁN</h1>
+        <p>Docente de Inglés Colegiada ante COLYPRO</p>
 
         <div class="section contact-info">
-            [cite_start]<h2>Contacto [cite: 20]</h2>
-            [cite_start]<p><strong>Correo Electrónico:</strong> <a href="mailto:alvaradoduranandrea@gmail.com">alvaradoduranandrea@gmail.com</a> [cite: 21]</p>
-            [cite_start]<p><strong>Ubicación:</strong> Ciudad Quesada, San Carlos, Alajuela, Costa Rica. [cite: 22]</p>
-            [cite_start]<p><strong>Teléfono Celular:</strong> +506 8758-4237 [cite: 23]</p>
-            [cite_start]<p><strong>Fecha de Nacimiento:</strong> 09 de enero de 1991 [cite: 24]</p>
+            <h2>Contacto</h2>
+            <p><strong>Correo Electrónico:</strong> <a href="mailto:alvaradoduranandrea@gmail.com">alvaradoduranandrea@gmail.com</a></p>
+            <p><strong>Ubicación:</strong> Ciudad Quesada, San Carlos, Alajuela, Costa Rica.</p>
+            <p><strong>Teléfono Celular:</strong> +506 8758-4237</p>
+            <p><strong>Fecha de Nacimiento:</strong> 09 de enero de 1991</p>
         </div>
 
         <div class="section">
-            [cite_start]<h2>Perfil Profesional [cite: 4]</h2>
+            <h2>Perfil Profesional</h2>
             <p class="profile-text">
-                [cite_start]Profesional bilingüe con amplia experiencia en la enseñanza del inglés a estudiantes de todas las edades, desde preescolar hasta adultos[cite: 5]. [cite_start]Experta en la aplicación de metodologías como CLIL para integrar el aprendizaje del idioma con contenidos académicos[cite: 6]. [cite_start]Especializada en intervenciones psicopedagógicas para dificultades de aprendizaje como TDAH, dislexia y disgrafía, integrando estas áreas al proceso de adquisición del inglés[cite: 7]. [cite_start]Destacada en la coordinación de procesos evaluativos y en el diseño de estrategias personalizadas que impulsan el desarrollo lingüístico, académico y emocional de cada estudiante[cite: 8, 9].
+                Profesional bilingüe con amplia experiencia en la enseñanza del inglés a estudiantes de todas las edades, desde preescolar hasta adultos. Experta en la aplicación de metodologías como CLIL para integrar el aprendizaje del idioma con contenidos académicos. Especializada en intervenciones psicopedagógicas para dificultades de aprendizaje como TDAH, dislexia y disgrafía, integrando estas áreas al proceso de adquisición del inglés. Destacada en la coordinación de procesos evaluativos y en el diseño de estrategias personalizadas que impulsan el desarrollo lingüístico, académico y emocional de cada estudiante.
             </p>
         </div>
 
         <div class="section">
-            [cite_start]<h2>Experiencia Profesional [cite: 10]</h2>
+            <h2>Experiencia Profesional</h2>
 
             <div class="job">
-                [cite_start]<span class="date">Enero 2023 - Actualmente [cite: 11]</span>
-                <p><span class="job-title">CLIL Teacher</span> | <span class="company-name">Carmen Lyra</span> | [cite_start]San Carlos, C.R. [cite: 12]</p>
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">CLIL Teacher</span> <span class="company-name">| Carmen Lyra | San Carlos, C.R.</span></h3>
+                    </div>
+                    <span class="date">Enero 2023 - Actualmente</span>
+                </div>
                 <ul>
-                    [cite_start]<li>Imparte clases de Matemáticas y Ciencias en primaria utilizando el inglés como medio de instrucción, bajo el enfoque CLIL (Content and Language Integrated Learning)[cite: 13].</li>
-                    [cite_start]<li>Se enfoca en desarrollar habilidades académicas y lingüísticas, promoviendo el pensamiento crítico y la fluidez comunicativa en inglés[cite: 14].</li>
+                    <li>Actualmente imparte clases de Matemáticas y Ciencias en primaria utilizando el idioma inglés como medio de instrucción, bajo el enfoque CLIL (Content and Language Integrated Learning).</li>
+                    <li>Su labor se centra en desarrollar habilidades académicas y lingüísticas, promoviendo pensamiento crítico y fluidez comunicativa en inglés.</li>
                 </ul>
             </div>
 
             <div class="job">
-                [cite_start]<span class="date">Febrero 2018 - Actualmente [cite: 15]</span>
-                <p><span class="job-title">Coordinación y Asesoría de Evaluación Académica</span> | <span class="company-name">Carmen Lyra</span> | [cite_start]San Carlos, C.R. [cite: 16]</p>
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">Coordinación y asesoría de evaluación académica</span> <span class="company-name">| Carmen Lyra | San Carlos, C.R.</span></h3>
+                    </div>
+                    <span class="date">Febrero 2018 - Actualmente</span>
+                </div>
                 <ul>
-                    [cite_start]<li>Miembro activo del Comité de Evaluación de primaria desde 2018, participando en la elaboración, revisión y mejora de instrumentos y procesos de evaluación académica tanto en español como en inglés[cite: 17].</li>
-                    [cite_start]<li>Actualmente, coordina el Comité de Evaluación de primaria y asesora al Comité de Evaluación de secundaria, brindando acompañamiento técnico para garantizar la calidad, coherencia y alineación pedagógica en las evaluaciones de ambos niveles[cite: 18].</li>
-                    [cite_start]<li>Responsable de iniciar y coordinar la certificación continua en inglés mediante pruebas TOEFL Primary, Junior e ITP para primaria y secundaria, en colaboración con el Centro Cultural Costarricense Norteamericano[cite: 19].</li>
+                    <li>Miembro activo del Comité de Evaluación de primaria desde 2018, participando en la elaboración, revisión y mejora de instrumentos y procesos de evaluación académica tanto en español como en inglés.</li>
+                    <li>Actualmente, coordina el Comité de Evaluación de primaria y asesora al Comité de Evaluación de secundaria, brindando acompañamiento técnico para garantizar la calidad, coherencia y alineación pedagógica en las evaluaciones de ambos niveles.</li>
+                    <li>Paralelamente, fue responsable de iniciar y coordinar la certificación continua en inglés mediante pruebas TOEFL Primary, Junior e ITP para primaria y secundaria, en colaboración con el Centro Cultural Costarricense Norteamericano, con el fin de certificar el nivel de inglés de los estudiantes.</li>
                 </ul>
             </div>
 
             <div class="job">
-                [cite_start]<span class="date">Febrero 2018 - Actualmente [cite: 25]</span>
-                <p><span class="job-title">Psicopedagogía</span> | <span class="company-name">Consultoría privada</span> | [cite_start]San Carlos-San José, C.R. [cite: 26]</p>
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">Psicopedagogía</span> <span class="company-name">| Consultoría privada | San Carlos-San José, C.R.</span></h3>
+                    </div>
+                    <span class="date">Febrero 2018 - Actualmente</span>
+                </div>
                 <ul>
-                    [cite_start]<li>Psicopedagoga privada con experiencia en diagnóstico y acompañamiento de estudiantes con dificultades de aprendizaje como TDAH, TEA, síndrome de Down, discalculia y disgrafía[cite: 27].</li>
-                    [cite_start]<li>Ha desarrollado intervenciones personalizadas para abordar simultáneamente dificultades en lectura y escritura en español e inglés, especialmente en estudiantes cuyo desempeño en lengua materna afecta su aprendizaje del inglés como segunda lengua[cite: 28].</li>
+                    <li>Psicopedagoga privada con experiencia en diagnóstico y acompañamiento de estudiantes con dificultades de aprendizaje como TDAH, TEA, síndrome de Down, discalculia y disgrafía.</li>
+                    <li>Como resultado de la integración de ambas carreras, ha desarrollado intervenciones personalizadas para abordar de forma simultánea las dificultades en lectura y escritura en español e inglés, especialmente en estudiantes cuyo desempeño en lengua materna afecta su aprendizaje del inglés como segunda lengua.</li>
                 </ul>
             </div>
 
             <div class="job">
-                [cite_start]<span class="date">Abril 2022 - Diciembre 2022 [cite: 31]</span>
-                <p><span class="job-title">English Teacher</span> | <span class="company-name">Ministerio Educación Pública</span> | [cite_start]San Carlos, C.R. [cite: 32]</p>
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">English Teacher</span> <span class="company-name">| Ministerio Educación Pública | San Carlos, C.R.</span></h3>
+                    </div>
+                    <span class="date">Abril 2022 - Diciembre 2022</span>
+                </div>
                 <ul>
-                    [cite_start]<li>Encargada de impartir clases de inglés en todos los niveles de primaria, desarrollando las cuatro habilidades lingüísticas (listening, speaking, reading y writing), en cumplimiento con los lineamientos del Ministerio de Educación Pública[cite: 33].</li>
+                    <li>Encargada de impartir clases de inglés en todos los niveles de primaria, desarrollando las cuatro habilidades lingüísticas (listening, speaking, reading y writing), en cumplimiento con los lineamientos del Ministerio de Educación Pública.</li>
                 </ul>
             </div>
 
             <div class="job">
-                [cite_start]<span class="date">2019 - Enero 2022 [cite: 42]</span>
-                <p><span class="job-title">English Language Tutor</span> | <span class="company-name">Servicio privado tutoría</span> | [cite_start]San Carlos - San José, C.R. [cite: 43]</p>
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">English Language Tutor</span> <span class="company-name">| Servicio privado tutoría | San Carlos - San José, C.R.</span></h3>
+                    </div>
+                    <span class="date">2019 - Enero 2022</span>
+                </div>
                 <ul>
-                    [cite_start]<li>Impartió tutorías grupales a estudiantes de preescolar para ampliar el alcance del aprendizaje del inglés, aprobado por el centro Kenely de Colores[cite: 44].</li>
-                    [cite_start]<li>Impartió tutorías virtuales de nivelación y recuperación en inglés para estudiantes de distintas edades, adaptando estrategias según el nivel y los objetivos[cite: 45].</li>
-                    [cite_start]<li>Atendió casos de instituciones como María Inmaculada de Moravia, centros del M.E.P (primaria y secundaria) y Carmen Lyra[cite: 46].</li>
-                    [cite_start]<li>Ofreció clases virtuales a adultos para la adquisición del inglés, utilizando un enfoque comunicativo orientado al ámbito laboral[cite: 47].</li>
-                    [cite_start]<li>Preparó a adolescentes y adultos para procesos de admisión en pruebas de inglés con excelentes resultados en instituciones como el Colegio Agropecuario, CTP Don Bosco y ULACIT[cite: 48].</li>
-                    [cite_start]<li>Preparó a adultos universitarios para cumplir con el requisito de graduación mediante la aprobación de una prueba de inglés, cumpliendo con los estándares académicos de instituciones como la Universidad Hispanoamericana y ULACIT[cite: 49].</li>
+                    <li>Impartió tutorías grupales a estudiantes de preescolar como parte de una propuesta para ampliar el alcance del aprendizaje del idioma inglés, aprobada por el centro Kenely de Colores.</li>
+                    <li>Impartió tutorías virtuales de nivelación y recuperación en inglés para estudiantes de distintas edades, adaptando estrategias según el nivel y los objetivos.</li>
+                    <li>Atendió casos de instituciones como María Inmaculada de Moravia, centros del M.E.P (primaria y secundaria) y Carmen Lyra.</li>
+                    <li>Ofreció clases virtuales a adultos para la adquisición del idioma inglés, utilizando un enfoque comunicativo orientado al ámbito laboral.</li>
+                    <li>Preparó a adolescentes y adultos para procesos de admisión en pruebas de inglés, con excelentes resultados en instituciones como el Colegio Agropecuario, CTP Don Bosco y ULACIT.</li>
+                    <li>Preparó a adultos universitarios para cumplir con el requisito de graduación mediante la aprobación de una prueba de inglés, cumpliendo con los estándares académicos de instituciones como la Universidad Hispanoamericana y ULACIT.</li>
                 </ul>
             </div>
 
             <div class="job">
-                [cite_start]<span class="date">Febrero 2016 - Abril 2022 [cite: 50]</span>
-                <p><span class="job-title">ESL, Reading, Grammar and Math teacher (enfoque CLIL)</span> | <span class="company-name">Carmen Lyra</span> | [cite_start]San Carlos, C.R. [cite: 51]</p>
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">ESL, Reading, Grammar and Math teacher (enfoque CLIL)</span> <span class="company-name">| Carmen Lyra | San Carlos, C.R.</span></h3>
+                    </div>
+                    <span class="date">Febrero 2016 - Abril 2022</span>
+                </div>
                 <ul>
-                    [cite_start]<li>Docente de gramática inglesa para 1ro, 2do y 3er grado, y docente de lectura en inglés para 3ro, 4to y 5to de primaria[cite: 52].</li>
-                    [cite_start]<li>Asignada como docente de Matemáticas para primer grado, y progresivamente para los niveles 2do, 3ro, 4to y 5to, impartiendo la materia en inglés[cite: 53].</li>
-                    [cite_start]<li>Toda la enseñanza se desarrolló bajo un enfoque CLIL, integrando el aprendizaje de contenidos académicos con el desarrollo del idioma inglés[cite: 54].</li>
+                    <li>Se desempeñó como docente de gramática inglesa para 1, 2 y 3 grado, y como docente de lectura en inglés para 3, 4 y 5 de primaria.</li>
+                    <li>Paralelamente, fue asignada como docente de Matemáticas para primer grado, y progresivamente se le asignaron también los niveles 2, 3, 4 y 5, impartiendo la materia en inglés.</li>
+                    <li>Toda la enseñanza se desarrolló bajo un enfoque CLIL, integrando el aprendizaje de contenidos académicos con el desarrollo del idioma inglés.</li>
                 </ul>
             </div>
 
             <div class="job">
-                [cite_start]<span class="date">Septiembre 2015 - Diciembre 2015 [cite: 55]</span>
-                <p><span class="job-title">ESL teacher</span> | <span class="company-name">Instituto de inteligencia I.D.I</span> | [cite_start]San José, C.R. [cite: 56]</p>
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">ESL teacher</span> <span class="company-name">| Instituto de inteligencia I.D.I | San José, C.R.</span></h3>
+                    </div>
+                    <span class="date">Septiembre 2015 - Diciembre 2015</span>
+                </div>
                 <ul>
-                    [cite_start]<li>Impartió clases de inglés durante el último trimestre para tercer grado, integrando las cuatro habilidades comunicativas: Listening, Speaking, Reading y Writing[cite: 57].</li>
-                    [cite_start]<li>Diseñó actividades y materiales que promovieron el desarrollo equilibrado de todas las competencias lingüísticas en un ambiente motivador y participativo[cite: 58].</li>
+                    <li>Impartió clases de inglés durante el último trimestre para tercer grado integrando las cuatro habilidades comunicativas: Listening, Speaking, Reading y Writing.</li>
+                    <li>Diseñó actividades y materiales que promovieron el desarrollo equilibrado de todas las competencias lingüísticas en un ambiente motivador y participativo.</li>
                 </ul>
             </div>
 
             <div class="job">
-                [cite_start]<span class="date">Febrero 2013 - Noviembre 2015 [cite: 59]</span>
-                <p><span class="job-title">English pre-school teacher</span> | <span class="company-name">Kenely de Colores</span> | [cite_start]San José, C.R. [cite: 60]</p>
+                <div class="job-header">
+                    <div class="job-title-company">
+                        <h3><span class="job-title">English pre-school teacher</span> <span class="company-name">| Kenely de Colores | San José, C.R.</span></h3>
+                    </div>
+                    <span class="date">Febrero 2013 - Noviembre 2015</span>
+                </div>
                 <ul>
-                    [cite_start]<li>Responsable de fortalecer las competencias lingüísticas requeridas para el ingreso a 1er grado, nombrada coordinadora de inglés en preescolar[cite: 61].</li>
-                    [cite_start]<li>Contratada con el propósito de elevar el nivel del idioma en preescolar, en coordinación con el departamento de inglés de primaria y brindando asesoría a las docentes de Materno e Interactivo 1[cite: 62].</li>
-                    [cite_start]<li>Impartió clases en niveles de interactivo 2 y en preparatoria, integrando el desarrollo del idioma inglés con actividades lúdicas y pedagógicas adaptadas a la edad[cite: 63].</li>
+                    <li>Responsable de fortalecer las competencias lingüísticas requeridas para el ingreso a 1º grado, nombrada coordinadora de inglés en preescolar.</li>
+                    <li>Contratada con el propósito de elevar el nivel del idioma en preescolar, en coordinación con el departamento de inglés de primaria y brindando asesoría a las docentes de Materno e Interactivo 1 para lograr alcanzar y superar los estándares básicos esperados.</li>
+                    <li>Impartió clases en niveles de interactivo 2 y en preparatoria, integrando el desarrollo del idioma inglés con actividades lúdicas y pedagógicas adaptadas a la edad.</li>
                 </ul>
             </div>
         </div>
 
         <div class="section">
-            [cite_start]<h2>Educación Superior [cite: 64]</h2>
+            <h2>Educación Superior</h2>
             <ul>
-                <li>
-                    [cite_start]<strong>Licenciatura en Enseñanza del Inglés para I y II ciclos de la E.G.B</strong> [cite: 66]<br>
-                    Universidad Hispanoamericana | [cite_start]Abril 2024 [cite: 65]
-                </li>
-                <li>
-                    [cite_start]<strong>Maestría en Psicopedagogía</strong> [cite: 68]<br>
-                    Universidad Hispanoamericana | [cite_start]Mayo 2017 [cite: 67]
-                </li>
-                <li>
-                    [cite_start]<strong>Bachiller en Enseñanza del Inglés para I y II ciclos de la E.G.B</strong> [cite: 70]<br>
-                    Universidad Hispanoamericana | [cite_start]Noviembre 2012 [cite: 69]
-                </li>
-            </ul>
-        </div>
-
-        <div class="section">
-            [cite_start]<h2>Certificados y Cursos [cite: 71]</h2>
-            <ul>
-                <li>
-                    [cite_start]<strong>Educación Afectiva</strong> [cite: 72]<br>
-                    U.I.N (Universidad Isaac Newton) | [cite_start]Actualmente en curso (2025) [cite: 73]
-                </li>
-                <li>
-                    [cite_start]<strong>Evaluación de los Aprendizajes en el Ámbito Educativo</strong> [cite: 74]<br>
-                    UNED | 40 horas | [cite_start]Calificación final $10/10$ [cite: 75]<br>
-                    [cite_start]17 de junio de 2020 al 31 de agosto de 2020 [cite: 76]
-                </li>
-                <li>
-                    [cite_start]<strong>Manejo Integrado de Huertas Escolares</strong> [cite: 77]<br>
-                    UNED | 48 horas | [cite_start]Calificación final $10/10$ [cite: 78]<br>
-                    [cite_start]22 de agosto de 2018 al 05 de diciembre de 2018 [cite: 79]
-                </li>
-                <li>
-                    [cite_start]<strong>Inglés Comunicativo</strong> [cite: 80]<br>
-                    I.T.C (Instituto de Capacitación) | [cite_start]144 horas [cite: 81]<br>
-                    [cite_start]17 de enero de 2008 al 15 de enero de 2009 [cite: 81]
-                </li>
-                <li>
-                    [cite_start]<strong>MS Office Básico (Windows, Word, Excel)</strong> [cite: 82, 83]<br>
-                    I.T.C acreditado por el I.N.A | [cite_start]56 horas [cite: 82, 83]<br>
-                    [cite_start]08 de enero de 2008 al 15 de julio de 2008 [cite: 84]
-                </li>
-            </ul>
-        </div>
-
-        <div class="section">
-            [cite_start]<h2>Idiomas [cite: 29]</h2>
-            <ul>
-                [cite_start]<li>Inglés: Nivel avanzado [cite: 30]</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            [cite_start]<h2>Habilidades [cite: 34]</h2>
-            <ul>
-                [cite_start]<li>Competente en herramientas tecnológicas [cite: 35]</li>
-                [cite_start]<li>Facilidad de adaptación [cite: 36]</li>
-                [cite_start]<li>Liderazgo efectivo [cite: 37]</li>
-                [cite_start]<li>Organizada [cite: 38]</li>
-                [cite_start]<li>Responsable [cite: 39]</li>
-                [cite_start]<li>Actitud proactiva [cite: 40]</li>
-                [cite_start]<li>Capacidad analítica [cite: 41]</li>
-            </ul>
-        </div>
-    </div>
-</body>
-</html>
+                <li class="education-item">
+                    <strong>Licenciatura en enseñanza del inglés para I y II ciclos de la E.G.B</strong><br>
+                    Universidad Hispanoamérica | Abril 2
