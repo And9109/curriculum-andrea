@@ -6,16 +6,15 @@
     <title>Currículum Vitae - Andrea Alvarado Durán</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Variables CSS para una gestión centralizada de colores y tamaños */
+        /* Variables CSS para una gestión centralizada de colores */
         :root {
-            --primary-blue: #0056b3; /* Azul oscuro principal para títulos */
-            --secondary-blue: #007bff; /* Azul más brillante para detalles */
-            --light-gray-bg: #f8f9fa; /* Fondo general de la página */
-            --darker-gray-bg: #e9ecef; /* Fondo de la columna izquierda (sutilmente diferente) */
-            --text-color: #343a40; /* Color principal del texto, casi negro */
-            --subtle-text-color: #6c757d; /* Gris para subtítulos y fechas */
-            --border-color: #dee2e6; /* Color de borde para separadores */
-            --section-title-color: #0056b3; /* Color para títulos de sección */
+            --primary-blue: #0056b3; /* Azul oscuro principal para títulos y acentos */
+            --secondary-blue: #007bff; /* Azul brillante para enlaces y detalles */
+            --text-dark: #343a40; /* Color principal del texto */
+            --text-subtle: #6c757d; /* Gris para subtítulos y fechas */
+            --border-light: #dee2e6; /* Color de borde para separadores sutiles */
+            --background-body: #ffffff; /* Fondo blanco para todo el cuerpo del CV */
+            --background-column-left: #f8f9fa; /* Fondo muy claro para la columna izquierda */
             --skill-bubble-bg: #e0f2f7; /* Fondo sutil para las burbujas de habilidades */
             --skill-bubble-border: #b2e0ec; /* Borde sutil para las burbujas de habilidades */
         }
@@ -24,32 +23,32 @@
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px; /* Padding alrededor de todo el CV */
-            background-color: var(--light-gray-bg); /* Fondo sutil para toda la página */
-            color: var(--text-color);
+            padding: 20px; /* Padding alrededor de todo el contenedor del CV */
+            background-color: var(--background-body); /* Fondo blanco para todo el CV */
+            color: var(--text-dark);
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            min-height: 100vh;
+            min-height: 100vh; /* Asegura que el cuerpo ocupe al menos toda la altura de la vista */
         }
 
         .cv-container {
             display: flex; /* Habilita Flexbox para las columnas */
             width: 100%;
-            max-width: 960px; /* Ancho máximo similar a un documento A4 */
-            background-color: #fff; /* Fondo blanco para todo el contenido principal */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra suave */
+            max-width: 960px; /* Ancho máximo para el diseño */
+            background-color: #fff; /* Asegura un fondo blanco para el contenedor principal */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra suave para un efecto flotante */
             border-radius: 8px; /* Bordes redondeados */
-            overflow: hidden; /* Asegura que el contenido no se desborde */
+            overflow: hidden; /* Importante para que los bordes redondeados se vean bien */
         }
 
         .left-column {
-            flex: 0 0 35%; /* La columna izquierda toma el 35% del ancho */
-            background-color: var(--darker-gray-bg); /* Fondo para la columna de perfil/contacto */
+            flex: 0 0 35%; /* La columna izquierda toma el 35% del ancho, no se encoge ni crece */
+            background-color: var(--background-column-left); /* Fondo ligeramente gris para la columna izquierda */
             padding: 30px 25px;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Centra el contenido verticalmente en esta columna */
+            align-items: center; /* Centra el contenido horizontalmente */
         }
 
         .right-column {
@@ -66,11 +65,12 @@
             line-height: 1.1;
             color: var(--primary-blue); /* Color azul del PDF */
             font-size: 2.8em; /* Tamaño grande */
+            text-transform: uppercase; /* Mayúsculas como en el PDF */
         }
         .header-title {
             text-align: center;
             font-size: 1.1em;
-            color: var(--subtle-text-color);
+            color: var(--text-subtle);
             margin-top: 0;
             margin-bottom: 40px;
             font-weight: 600;
@@ -79,17 +79,17 @@
         /* Títulos de las secciones */
         .section-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.6em; /* Tamaño para los títulos de sección */
-            color: var(--section-title-color); /* Color azul */
-            border-bottom: 2px solid var(--border-color); /* Línea divisoria */
+            font-size: 1.6em;
+            color: var(--primary-blue); /* Color azul principal */
+            border-bottom: 2px solid var(--border-light); /* Línea divisoria sutil */
             padding-bottom: 10px;
             margin-top: 35px;
             margin-bottom: 20px;
-            text-transform: uppercase; /* Mayúsculas como en el PDF */
+            text-transform: uppercase;
         }
         .left-column .section-title {
             text-align: center; /* Centra los títulos en la columna izquierda */
-            font-size: 1.3em; /* Un poco más pequeños en la columna lateral */
+            font-size: 1.3em; /* Un poco más pequeños para la columna lateral */
             margin-top: 25px;
         }
 
@@ -107,12 +107,13 @@
             margin: 8px 0;
             display: flex;
             align-items: center;
-            color: var(--text-color);
+            color: var(--text-dark);
         }
         .contact-info strong {
             font-weight: 600;
-            margin-right: 8px; /* Espacio entre la etiqueta y el valor */
+            margin-right: 8px;
             color: var(--primary-blue);
+            min-width: 70px; /* Asegura espacio para la etiqueta */
         }
         .contact-info a {
             color: var(--secondary-blue);
@@ -145,12 +146,12 @@
         }
 
         /* Experiencia y Educación */
-        .job-item, .education-item, .certificate-item {
+        .item-block { /* Bloque general para job, education, certificate */
             margin-bottom: 20px;
             padding-bottom: 15px;
-            border-bottom: 1px dashed var(--border-color); /* Línea punteada sutil */
+            border-bottom: 1px dashed var(--border-light); /* Línea punteada sutil */
         }
-        .job-item:last-child, .education-item:last-child, .certificate-item:last-child {
+        .item-block:last-child {
             border-bottom: none; /* No hay línea en el último de cada sección */
         }
 
@@ -166,22 +167,36 @@
         .job-role {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            color: var(--text-color);
+            color: var(--text-dark);
             font-size: 1.05em;
             margin-bottom: 2px;
         }
         .job-company {
             font-style: italic;
-            color: var(--subtle-text-color);
+            color: var(--text-subtle);
             font-size: 0.95em;
         }
         .job-date {
             white-space: nowrap; /* Evita que la fecha se rompa */
-            color: var(--subtle-text-color);
+            color: var(--text-subtle);
             font-size: 0.9em;
             font-weight: 600;
             text-align: right; /* Alinea la fecha a la derecha */
-            min-width: 140px; /* Asegura espacio */
+            min-width: 140px; /* Asegura espacio mínimo */
         }
 
-        .job-description-list, .education-details
+        .description-list { /* Lista general para descripciones, educación, certificados */
+            list-style-type: disc; /* Viñetas estándar */
+            padding-left: 20px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        .description-list li {
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+        
+        .education-item strong, .certificate-item strong {
+            display: block;
+            font-size: 1em;
+            color: var(--primary
